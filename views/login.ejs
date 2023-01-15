@@ -7,6 +7,9 @@
     <title>Document</title>
 </head>
 <body>
+    <% if (locals.msg) { %>
+        <%= locals.msg %> 
+    <% } %>
     <form action="/login" method="post">
         <input type="text" name="username" id="username" placeholder="username">
         <input type="password" name="password" id="password" placeholder="password">

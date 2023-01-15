@@ -12,6 +12,7 @@ module.exports = {
             name: req.body.username,
             password:req.body.password
         }
+        let error;
         console.log(user);
         koneksi.query("SELECT * FROM users WHERE username = '" + user.name + "' AND password = '" + user.password + "'", (err, result) => {
             if (err) {
@@ -25,7 +26,7 @@ module.exports = {
                     res.render('home', {user});
                 }
                 else {
-                    res.send("Username/password salah")
+                    res.render('login', {msg: "Username/password salah"})
                 }
             }
             

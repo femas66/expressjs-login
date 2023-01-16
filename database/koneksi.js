@@ -1,10 +1,13 @@
 const mysql = require('mysql');
+const dotenv = require('dotenv')
+dotenv.config();
+const env = process.env;
 
 let conn = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'expressjs'
+    host: env.DB_HOST,
+    user: env.DB_USER,
+    password: env.DB_PASSWORD,
+    database: env.DB_NAME
 });
 conn.connect((err) => {
     if (err) {
